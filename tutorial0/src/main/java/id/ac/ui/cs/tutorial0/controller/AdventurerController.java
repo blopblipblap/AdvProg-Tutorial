@@ -16,7 +16,6 @@ public class AdventurerController {
     @RequestMapping("/adventurer/countPower")
     private String showAdventurerPowerFromBirthYear(@RequestParam("birthYear")int birthYear, Model model) {
         model.addAttribute("power", adventurerCalculatorService.countPowerPotensialFromBirthYear(birthYear));
-        model.addAttribute("class", adventurerCalculatorService.powerClassifier(birthYear));
         return "calculator";
     }
 }
