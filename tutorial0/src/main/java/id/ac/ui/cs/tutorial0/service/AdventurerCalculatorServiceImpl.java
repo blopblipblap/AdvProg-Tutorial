@@ -19,6 +19,18 @@ public class AdventurerCalculatorServiceImpl implements AdventurerCalculatorServ
         }
     }
 
+    @Override
+    public String powerClassifier(int birthYear) {
+        int power = countPowerPotensialFromBirthYear(birthYear);
+        if (power>=0 && power<=20000) {
+            return " C class";
+        }  else if (power>20000 && power<=100000) {
+            return " B class";
+        } else {
+            return " A class";
+        }
+    }
+
     private int getRawAge(int birthYear) {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         return currentYear-birthYear;
