@@ -11,7 +11,7 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
     private String home() {
-        return "rumah";
+        return "house";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/greet")
