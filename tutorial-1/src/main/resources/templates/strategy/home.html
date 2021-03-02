@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategy Home</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <h3 class="h3 d-flex justify-content-center">Adventurers List</h3>
+    <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+         th:each="adventurer: ${adventurers}">
+        <div class="card-body">
+            <!--ToDo: Complete me-->
+            <form class="form-group"
+                  th:action="..."
+                  method="POST">
+                <!--ToDo: Fill the blank-->
+                <p th:text="'Alias: ' + ..." class="align-content-center"></p>
+                <p th:text="'Attack Description: ' + ..."></p>
+                <p th:text="'Defense Description: '+ ..."></p>
+                <input type="hidden" name="alias" th:value="...">
+                <select class="form-control" name="attackType" id="attackTypeSelection">
+                    <option th:value="">Select Attack Type</option>
+                    <option th:each="attack: ${attackBehaviors}"
+                            th:value="..."
+                            th:text="...">
+                    </option>
+                </select>
+                <select class="form-control" name="defenseType" id="defenseTypeSelection">
+                    <option th:value="...">Select Defense Type</option>
+                    <option th:each="defense: ${defenseBehaviors}"
+                            th:value="..."
+                            th:text="...">
+                    </option>
+                </select>
+                <br>
+                <button class="btn btn-sm btn-primary" type="submit">Change Strategy</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
