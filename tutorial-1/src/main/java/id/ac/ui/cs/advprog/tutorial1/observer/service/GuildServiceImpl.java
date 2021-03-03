@@ -18,6 +18,9 @@ public class GuildServiceImpl implements GuildService {
     public GuildServiceImpl(QuestRepository questRepository) {
         this.questRepository = questRepository;
         this.guild = new Guild();
+        this.agileAdventurer = new Adventurer();
+        this.knightAdventurer = new Adventurer();
+        this.mysticAdventurer = new Adventurer();
         //ToDo: Complete Me
     }
 

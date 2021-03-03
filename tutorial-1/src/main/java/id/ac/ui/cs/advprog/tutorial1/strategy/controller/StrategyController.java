@@ -34,7 +34,7 @@ public class StrategyController {
 
         adventurerService.changeStrategy(alias, attackType, defenseType);
         //ToDo: This should redirect to home URL
-        return "";
+        return "strategy/home";
     }
 
 }

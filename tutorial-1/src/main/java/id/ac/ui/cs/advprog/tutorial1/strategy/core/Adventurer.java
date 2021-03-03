@@ -2,8 +2,8 @@ package id.ac.ui.cs.advprog.tutorial1.strategy.core;
 
 public abstract class Adventurer {
 
-    private AttackBehavior attackBehavior;
-    private DefenseBehavior defenseBehavior;
+    protected AttackBehavior attackBehavior;
+    protected DefenseBehavior defenseBehavior;
 
     public String attack () {
         return attackBehavior.attack();
