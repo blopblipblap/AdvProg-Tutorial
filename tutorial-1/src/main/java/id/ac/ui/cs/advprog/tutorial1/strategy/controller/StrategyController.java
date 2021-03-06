@@ -25,8 +25,8 @@ public class StrategyController {
         Iterable<DefenseBehavior> defenseBehaviors = adventurerService.getDefenseBehaviors();
         //ToDo: Complete me
         Iterable<Adventurer> adventurers = adventurerService.findAll();
-        model.addAttribute("attack", attackBehaviors);
-        model.addAttribute("defense", defenseBehaviors);
+        model.addAttribute("attackBehaviors", attackBehaviors);
+        model.addAttribute("defenseBehaviors", defenseBehaviors);
         model.addAttribute("adventurers",adventurers);
         return "strategy/home";
     }

@@ -21,14 +21,14 @@
                 <input type="hidden" name="alias" th:value="${adventurer.getAlias()}">
                 <select class="form-control" name="attackType" id="attackTypeSelection">
                     <option th:value="attack">Select Attack Type</option>
-                    <option th:each="attackType: ${attack}"
+                    <option th:each="attackType: ${attackBehaviors}"
                             th:value="${attackType.getType()}"
                             th:text="${attackType.getType()}">
                     </option>
                 </select>
                 <select class="form-control" name="defenseType" id="defenseTypeSelection">
                     <option th:value="defense">Select Defense Type</option>
-                    <option th:each="defenseType: ${defense}"
+                    <option th:each="defenseType: ${defenseBehaviors}"
                             th:value="${defenseType.getType()}"
                             th:text="${defenseType.getType()}">
                     </option>
