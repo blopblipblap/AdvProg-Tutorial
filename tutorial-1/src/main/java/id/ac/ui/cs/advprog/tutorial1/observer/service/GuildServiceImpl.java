@@ -32,6 +32,7 @@ public class GuildServiceImpl implements GuildService {
     @Override
     public void addQuest(Quest quest) {
         this.guild.addQuest(quest);
+        questRepository.save(quest);
     }
 
     @Override

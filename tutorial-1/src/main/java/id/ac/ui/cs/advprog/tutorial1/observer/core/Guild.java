@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.tutorial1.observer.core;
 
+import id.ac.ui.cs.advprog.tutorial1.observer.repository.QuestRepository;
+
 import java.util.ArrayList;
 import java.util.List;
 

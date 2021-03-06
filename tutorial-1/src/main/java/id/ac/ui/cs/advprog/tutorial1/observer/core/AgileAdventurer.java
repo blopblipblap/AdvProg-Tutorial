@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.tutorial1.observer.core;
 
+import id.ac.ui.cs.advprog.tutorial1.observer.repository.QuestRepository;
+
 public class AgileAdventurer extends Adventurer {
 
     public AgileAdventurer(Guild guild) {
@@ -12,9 +14,10 @@ public class AgileAdventurer extends Adventurer {
 
     @Override
     public void update() {
-        Quest q = guild.getQuest();
-        if (q.getType().equals("R")) {
-
+        if (guild.getQuestType().equals("R")) {
+            this.getQuests().add(guild.getQuest());
+        } else if (guild.getQuestType().equals("D")) {
+            this.getQuests().add(guild.getQuest());
         }
     }
 }

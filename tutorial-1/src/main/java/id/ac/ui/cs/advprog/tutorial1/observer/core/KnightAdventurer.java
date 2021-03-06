@@ -14,6 +14,6 @@ public class KnightAdventurer extends Adventurer {
     //ToDo: Complete Me
     @Override
     public void update() {
-        System.out.println("apa nii");
+        this.getQuests().add(guild.getQuest());
     }
 }

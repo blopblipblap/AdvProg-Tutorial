@@ -13,6 +13,10 @@ public class MysticAdventurer extends Adventurer {
     //ToDo: Complete Me
     @Override
     public void update() {
-        System.out.println("apa nii");
+        if (guild.getQuestType().equals("E")) {
+            this.getQuests().add(guild.getQuest());
+        } else if (guild.getQuestType().equals("D")) {
+            this.getQuests().add(guild.getQuest());
+        }
     }
 }
