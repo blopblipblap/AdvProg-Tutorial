@@ -18,11 +18,24 @@ public class GuildServiceImpl implements GuildService {
     public GuildServiceImpl(QuestRepository questRepository) {
         this.questRepository = questRepository;
         this.guild = new Guild();
-        this.agileAdventurer = new Adventurer();
-        this.knightAdventurer = new Adventurer();
-        this.mysticAdventurer = new Adventurer();
-        //ToDo: Complete Me
+        //ToDO: Complete Me
+        this.agileAdventurer = new AgileAdventurer(guild);
+        guild.add(agileAdventurer);
+        this.knightAdventurer = new KnightAdventurer(guild);
+        guild.add(knightAdventurer);
+        this.mysticAdventurer = new MysticAdventurer(guild);
+        guild.add(mysticAdventurer);
     }
 
     //ToDo: Complete Me
+
+    @Override
+    public void addQuest(Quest quest) {
+        this.guild.addQuest(quest);
+    }
+
+    @Override
+    public List<Adventurer> getAdventurers() {
+        return this.guild.getAdventurers();
+    }
 }

@@ -18,11 +18,11 @@
                 <div class="card text-center text-dark">
                     <div class="card-body p-4">
                         <!--ToDo: Complete me-->
-                        <h1 th:text="..."></h1>
+                        <h1 th:text="${adventurer.getName()}"></h1>
                         <h3 class="text-left"><b>Quest:</b></h3>
                         <ul class="pl-3 text-left" th:each="quest: ${adventurer.quests}">
                             <!--ToDo: Complete me-->
-                            <li th:text="..."></li>
+                            <li th:text="${quest.getTitle()}"></li>
                         </ul>
                     </div>
                 </div>

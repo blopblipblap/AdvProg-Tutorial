@@ -12,16 +12,16 @@
             <div class="mx-auto p-4 col-md-7">
                 <h1 class="mb-4">Add a Quest!</h1>
                 <!--ToDo: Complete me-->
-                <form th:action="..." th:object="${quest}" method="...">
+                <form th:action="@{/add-quest}" th:object="${quest}" method="POST">
                     <div class="form-group">
                         <!--ToDo: Complete me-->
-                        <input type="text" class="form-control" th:field="..." id="title-quest" placeholder="Title">
-                        <select class="form-control" th:field="...">
+                        <input type="text" class="form-control" th:field="*{title}" id="title-quest" placeholder="Title">
+                        <select class="form-control" th:field="*{type}">
                             <option value="" selected disabled>Select Category</option>
                             <!--ToDo: Complete me-->
-                            <option value="..." th:text="Delivery"></option>
-                            <option value="..." th:text="Escort"></option>
-                            <option value="..." th:text="Rumble"></option>
+                            <option value="D" th:text="Delivery"></option>
+                            <option value="E" th:text="Escort"></option>
+                            <option value="R" th:text="Rumble"></option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-outline-primary btn-block">Add</button>
