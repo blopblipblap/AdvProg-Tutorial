@@ -5,13 +5,8 @@ public class KnightAdventurer extends Adventurer {
     public KnightAdventurer(Guild guild) {
         this.name = "Knight";
         this.guild = guild;
-        //ToDo: Complete Me
-        Quest deliveryQuest = new Quest();
-        Quest rumbleQuest = new Quest();
-        Quest escortQuest = new Quest();
     }
 
-    //ToDo: Complete Me
     @Override
     public void update() {
         this.getQuests().add(guild.getQuest());

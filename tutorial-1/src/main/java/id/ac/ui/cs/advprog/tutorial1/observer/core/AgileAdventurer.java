@@ -6,11 +6,9 @@ public class AgileAdventurer extends Adventurer {
 
     public AgileAdventurer(Guild guild) {
         this.name = "Agile";
-        //ToDo: Complete Me
         this.guild = guild;
     }
 
-    //ToDo: Complete Me
 
     @Override
     public void update() {

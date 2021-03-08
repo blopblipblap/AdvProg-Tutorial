@@ -27,7 +27,6 @@ public class Guild {
     }
 
     private void broadcast() {
-        //ToDo: Complete Me
         for (int i = 0; i < adventurers.size(); i++) {
             Adventurer notifiedAdv = (Adventurer) adventurers.get(i);
             notifiedAdv.update();

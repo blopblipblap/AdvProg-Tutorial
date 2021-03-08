@@ -10,11 +10,9 @@
     <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
          th:each="adventurer: ${adventurers}">
         <div class="card-body">
-            <!--ToDo: Complete me-->
             <form class="form-group"
                   th:action="@{/adventurer/change-strategy}"
                   method="POST">
-                <!--ToDo: Fill the blank-->
                 <p th:text="'Alias: ' + ${adventurer.getAlias()}" class="align-content-center"></p>
                 <p th:text="'Attack Description: ' + ${adventurer.attack()}"></p>
                 <p th:text="'Defense Description: '+ ${adventurer.defend()}"></p>

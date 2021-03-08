@@ -23,7 +23,6 @@ public class StrategyController {
     public String strategyHome(Model model) {
         Iterable<AttackBehavior> attackBehaviors = adventurerService.getAttackBehaviors();
         Iterable<DefenseBehavior> defenseBehaviors = adventurerService.getDefenseBehaviors();
-        //ToDo: Complete me
         Iterable<Adventurer> adventurers = adventurerService.findAll();
         model.addAttribute("attackBehaviors", attackBehaviors);
         model.addAttribute("defenseBehaviors", defenseBehaviors);
@@ -31,7 +30,6 @@ public class StrategyController {
         return "strategy/home";
     }
 
-    //ToDo: Fill with a correct method
     @RequestMapping(path = "/change-strategy", method = RequestMethod.POST)
     public String changeAttack(
             @RequestParam(value = "alias") String alias,
@@ -39,7 +37,6 @@ public class StrategyController {
             @RequestParam(value = "defenseType") String defenseType) {
 
         adventurerService.changeStrategy(alias, attackType, defenseType);
-        //ToDo: This should redirect to home URL
         return "redirect:/adventurer/all";
     }
 

@@ -32,7 +32,6 @@ public class AdventurerServiceImpl implements AdventurerService {
 
     @Override
     public void changeStrategy(String alias, String attackType, String defenseType) {
-        //ToDo: Complete me
         Adventurer adventurer = adventurerRepository.findByAlias(alias);
         AttackBehavior attack = strategyRepository.getAttackBehaviorByType(attackType);
         DefenseBehavior defense = strategyRepository.getDefenseBehaviorByType(defenseType);
