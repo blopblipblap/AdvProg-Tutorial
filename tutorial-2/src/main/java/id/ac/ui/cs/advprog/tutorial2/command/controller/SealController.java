@@ -24,12 +24,14 @@ public class SealController {
     @RequestMapping(path = "/cast", method = RequestMethod.POST)
     public String castSpell(@RequestParam(value = "spellName") String spellName) {
         // TODO: Complete Me
-        return "";
+        sealService.castSpell(spellName);
+        return "redirect:/seal";
     }
 
     @RequestMapping(path = "/undo", method = RequestMethod.GET)
     public String undoSpell() {
         // TODO: Complete Me
-        return "";
+        sealService.undoSpell();
+        return "redirect:/seal";
     }
 }

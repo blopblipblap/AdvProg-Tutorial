@@ -47,11 +47,13 @@ public class SealServiceImpl implements SealService {
     @Override
     public void castSpell(String spellName) {
         // TODO: Complete Me
+        seal.castSpell(spellName);
     }
 
     @Override
     public void undoSpell() {
         // TODO: Complete Me
+        seal.undoSpell();
     }
 
     @Override
