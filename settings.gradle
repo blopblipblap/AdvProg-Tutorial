@@ -7,3 +7,4 @@ pluginManagement {
 rootProject.name = 'AdvProg-Tutorial'
 include 'tutorial0'
 include 'tutorial-1'
+include 'tutorial-2'

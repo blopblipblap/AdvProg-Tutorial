@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategy Home</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <h3 class="h3 d-flex justify-content-center">Spirit List</h3>
+    <div class="card-deck">
+        <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+             th:each="familiar: ${familiars}">
+            <div class="card-body">
+                <p th:text="'Race: ' + ${familiar.getRace()}" class="align-content-center"></p>
+                <p>Activity</p>
+                <ul class="pl-3 text-left" th:each="archive: ${familiar.getLifeArchive()}">
+                    <li th:text="${archive}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+             th:each="spirit: ${spirits}">
+            <div class="card-body">
+                <p th:text="'Race: ' + ${spirit.getRace()}" class="align-content-center"></p>
+                <p>Activity</p>
+                <ul class="pl-3 text-left" th:each="archive: ${spirit.getLifeArchive()}">
+                    <li th:text="${archive}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3 class="h3 d-flex justify-content-center">Spell List</h3>
+    <div class="card-deck">
+        <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+             th:each="spell: ${spells}">
+            <div class="card-body">
+                <form class="form-group"
+                      th:action="@{cast}"
+                      method="POST">
+                    <p th:text="'Spell Name: ' + ${spell.spellName()}" class="align-content-center"></p>
+                    <input type="hidden" name="spellName" th:value="${spell.spellName()}">
+                    <br>
+                    <button class="btn btn-sm btn-primary" type="submit">Cast</button>
+                </form>
+            </div>
+        </div>
+        <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;">
+            <div class="card-body">
+                <form class="form-group"
+                      th:action="@{undo}"
+                      method="GET">
+                    <p th:text="'Undo Last Spell'" class="align-content-center"></p>
+                    <br>
+                    <button class="btn btn-sm btn-primary" type="submit">Undo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/webjars/popper.js/1.16.0/popper.min.js"></script>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
