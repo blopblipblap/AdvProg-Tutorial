@@ -10,6 +10,8 @@ public class ContractSeal {
 
     private Map<String, Spell> spells;
 
+    private Spell lastSpell;
+
     public ContractSeal() {
         spells = new HashMap<>();
     }
@@ -22,11 +24,12 @@ public class ContractSeal {
         // TODO: Complete Me
         Spell spell = spells.get(spellName);
         spell.cast();
+        lastSpell = spell;
     }
 
     public void undoSpell() {
         // TODO: Complete Me tf
-
+        lastSpell.undo();
     }
 
     public Collection<Spell> getSpells() { return spells.values(); }
