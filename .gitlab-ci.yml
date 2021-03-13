@@ -1,0 +1,19 @@
+image: gradle:6.1.1-jdk8
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+before_script:
+  - export GRADLE_USER_HOME=`pwd`/.gradle
+
+stages:
+  - test
+
+# Tutorial 1 CI Jobs
+test:t1:
+  stage: test
+  script: gradle :tutorial-1:check
+  only:
+    - /.*tutorial[_-].*1$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021
