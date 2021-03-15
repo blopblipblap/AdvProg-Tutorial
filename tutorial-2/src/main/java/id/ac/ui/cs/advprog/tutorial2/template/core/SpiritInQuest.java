@@ -11,6 +11,10 @@ public abstract class SpiritInQuest {
         list.add(this.summon());
         list.add(this.getReady());
         list.add(this.buff());
+        list.add(this.attackWithBuster());
+        list.add(this.attackWithQuick());
+        list.add(this.attackWithArts());
+        list.add(this.attackWithSpecialSkill());
         return list;
     }
 
