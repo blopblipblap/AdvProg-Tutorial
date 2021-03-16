@@ -21,14 +21,14 @@ public class ContractSeal {
     }
 
     public void castSpell(String spellName) {
-        // TODO: Complete Me
+        // Make castSpell
         Spell spell = spells.get(spellName);
         spell.cast();
         latestSpell = spell;
     }
 
     public void undoSpell() {
-        // TODO: Complete Me tf
+        // Make undoSpell
         latestSpell.undo();
     }
 

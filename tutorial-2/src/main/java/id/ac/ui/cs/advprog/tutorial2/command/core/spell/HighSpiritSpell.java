@@ -7,14 +7,12 @@ public abstract class HighSpiritSpell implements Spell {
 	protected HighSpirit spirit;
 
     public HighSpiritSpell(HighSpirit spirit) {
-        // TODO: Complete Me
         this.spirit = spirit;
     }
 
     @Override
     public void undo() {
         if (spirit.getPrevState() == HighSpiritState.ATTACK) spirit.attackStance();
-        // TODO: Complete Me
         else if (spirit.getPrevState() == HighSpiritState.DEFEND) spirit.defenseStance();
         else if (spirit.getPrevState() == HighSpiritState.STEALTH) spirit.stealthStance();
         else if (spirit.getPrevState() == HighSpiritState.SEALED) spirit.seal();

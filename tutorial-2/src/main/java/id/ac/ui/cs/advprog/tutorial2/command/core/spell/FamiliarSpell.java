@@ -5,7 +5,7 @@ import id.ac.ui.cs.advprog.tutorial2.command.core.spirit.FamiliarState;
 
 public abstract class FamiliarSpell implements Spell {
     protected Familiar familiar;
-    // TODO: Complete Me
+    // Make constructor
 
     public FamiliarSpell(Familiar familiar) {
         this.familiar = familiar;
@@ -14,7 +14,6 @@ public abstract class FamiliarSpell implements Spell {
     @Override
     public void undo() {
         if (familiar.getPrevState() == FamiliarState.ACTIVE) familiar.summon();
-        // TODO: Complete Me
-        if (familiar.getPrevState() == FamiliarState.SEALED) familiar.seal();
+        else if (familiar.getPrevState() == FamiliarState.SEALED) familiar.seal();
     }
 }

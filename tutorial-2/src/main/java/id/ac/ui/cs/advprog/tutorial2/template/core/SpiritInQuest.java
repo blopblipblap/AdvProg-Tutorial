@@ -7,7 +7,6 @@ public abstract class SpiritInQuest {
 
     public List attackPattern() {
         List list = new ArrayList();
-        // TODO: Complete Me
         list.add(this.summon());
         list.add(this.getReady());
         list.add(this.buff());

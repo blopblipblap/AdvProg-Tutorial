@@ -3,7 +3,7 @@ package id.ac.ui.cs.advprog.tutorial2.command.core.spell;
 import id.ac.ui.cs.advprog.tutorial2.command.core.spirit.Familiar;
 
 public class FamiliarSummonSpell extends FamiliarSpell {
-	// TODO: Complete Me
+	// Make constructor
 
     public FamiliarSummonSpell(Familiar familiar) {
         super(familiar);

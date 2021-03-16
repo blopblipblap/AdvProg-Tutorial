@@ -17,7 +17,7 @@ public class ChainSpell implements Spell {
 
     @Override
     public void cast() {
-        // tf does this do
+        // cast chain spell
         for (int i = 0; i < spellArrayList.size(); i++) {
             Spell spell = spellArrayList.get(i);
             spell.cast();
@@ -26,7 +26,7 @@ public class ChainSpell implements Spell {
 
     @Override
     public void undo() {
-        //tf does this do (2)
+        // undo chain spell
         for (int i = 0; i < spellArrayList.size(); i++) {
             Spell spell = spellArrayList.get(i);
             spell.undo();
