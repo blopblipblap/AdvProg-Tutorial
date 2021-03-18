@@ -1,4 +1,4 @@
-image: gradle:6.1.1-jdk8
+image: gradle:6.8.3-jdk11
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
@@ -25,5 +25,14 @@ test:t2:
   script: gradle :tutorial-2:check
   only:
     - /.*tutorial[_-].*2$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021
+
+
+test:t3:
+  stage: test
+  script: gradle :tutorial-3:check
+  only:
+    - /.*tutorial[_-].*3$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
