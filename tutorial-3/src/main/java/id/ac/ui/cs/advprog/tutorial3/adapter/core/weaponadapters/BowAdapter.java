@@ -7,23 +7,27 @@ import id.ac.ui.cs.advprog.tutorial3.adapter.core.weapon.Weapon;
 public class BowAdapter implements Weapon {
 
     private Bow bow;
-    private boolean isAimShot;
+    private boolean isAimShot = false;
 
     public BowAdapter(Bow bow) {
         this.bow = bow;
-        this.isAimShot = false;
     }
 
     @Override
     public String normalAttack() {
-        return bow.shootArrow(isAimShot);
+        return bow.shootArrow(this.isAimShot);
     }
 
     @Override
     public String chargedAttack() {
-        if (this.isAimShot) {this.isAimShot = false;}
-        else {this.isAimShot = true;}
-        return bow.shootArrow(isAimShot);
+        if (this.isAimShot) {
+            this.isAimShot = false;
+            return "Leaving aim shot mode";
+        }
+        else {
+            this.isAimShot = true;
+            return "Entered aim shot mode";
+        }
     }
 
     @Override

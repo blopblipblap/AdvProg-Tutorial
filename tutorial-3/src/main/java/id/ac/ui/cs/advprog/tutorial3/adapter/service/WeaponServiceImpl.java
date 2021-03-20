@@ -12,6 +12,7 @@ import id.ac.ui.cs.advprog.tutorial3.adapter.repository.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 // TODO: Complete me. Modify this class as you see fit~
@@ -34,8 +35,8 @@ public class WeaponServiceImpl implements WeaponService {
 
 
     // TODO: implement me
-    @Override
-    public List<Weapon> findAll() {
+    @PostConstruct
+    public void addToWeapRepo() {
         List<Bow> listBow = bowRepository.findAll();
         for (int a = 0; a < listBow.size(); a++) {
             BowAdapter bow = new BowAdapter(listBow.get(a));
@@ -46,6 +47,10 @@ public class WeaponServiceImpl implements WeaponService {
             SpellbookAdapter spellbook = new SpellbookAdapter(listSpellbook.get(a));
             weaponRepository.save(spellbook);
         }
+    }
+
+    @Override
+    public List<Weapon> findAll() {
         return weaponRepository.findAll();
     }
 
