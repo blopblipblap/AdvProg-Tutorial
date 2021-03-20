@@ -9,27 +9,27 @@ public class SpellbookAdapter implements Weapon {
     private Spellbook spellbook;
 
     public SpellbookAdapter(Spellbook spellbook) {
-
+        this.spellbook = spellbook;
     }
 
     @Override
     public String normalAttack() {
-        return null;
+        return spellbook.smallSpell();
     }
 
     @Override
     public String chargedAttack() {
-        return null;
+        return spellbook.largeSpell();
     }
 
     @Override
     public String getName() {
-        return null;
+        return spellbook.getName();
     }
 
     @Override
     public String getHolderName() {
-        return null;
+        return spellbook.getHolderName();
     }
 
 }

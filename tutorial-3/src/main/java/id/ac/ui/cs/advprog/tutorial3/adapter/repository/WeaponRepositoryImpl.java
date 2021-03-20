@@ -10,7 +10,7 @@ import java.util.Map;
 
 // You may modify this class, but you are NOT allowed to compose (for example: autowire) another class
 @Repository
-public class WeaponRepositoryImpl implements WeaponRepository {
+public class  WeaponRepositoryImpl implements WeaponRepository {
 
     private Map<String, Weapon> weapons = new HashMap<>();
 

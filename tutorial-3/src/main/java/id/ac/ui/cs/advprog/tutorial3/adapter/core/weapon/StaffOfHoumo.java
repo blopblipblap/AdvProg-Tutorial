@@ -11,13 +11,13 @@ public class StaffOfHoumo implements Weapon {
     @Override
     public String normalAttack() {
         // TODO: complete me
-        return null;
+        return "Enemy got stabbed";
     }
 
     @Override
     public String chargedAttack() {
         // TODO: complete me
-        return null;
+        return "Lets go lemnistatic v2";
     }
 
     @Override

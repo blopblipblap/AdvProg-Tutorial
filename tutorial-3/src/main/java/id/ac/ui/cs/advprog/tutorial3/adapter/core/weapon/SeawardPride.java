@@ -12,13 +12,13 @@ public class SeawardPride implements Weapon {
     @Override
     public String normalAttack() {
         // TODO: complete me
-        return null;
+        return "Enemy got hit by big weapon";
     }
 
     @Override
     public String chargedAttack() {
         // TODO: complete me
-        return null;
+        return "Lets go spinny spin spin";
     }
 
     @Override

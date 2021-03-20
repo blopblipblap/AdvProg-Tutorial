@@ -11,13 +11,13 @@ public class FullMoonPike implements Weapon {
     @Override
     public String normalAttack() {
         // TODO: complete me
-        return null;
+        return "Physical go brr";
     }
 
     @Override
     public String chargedAttack() {
         // TODO: complete me
-        return null;
+        return "Charge ahead!";
     }
 
     @Override

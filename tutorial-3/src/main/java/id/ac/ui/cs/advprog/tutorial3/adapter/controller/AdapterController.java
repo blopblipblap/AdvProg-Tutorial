@@ -18,6 +18,8 @@ public class AdapterController {
     // TODO: complete me
     @RequestMapping(path = "", method = RequestMethod.GET)
     public String battleHome(Model model) {
+        model.addAttribute("weapons", weaponService.findAll());
+        model.addAttribute("logs", weaponService.getAllLogs());
         return "adapter/home";
     }
 
@@ -26,7 +28,7 @@ public class AdapterController {
     public String attackWithWeapon(
         @RequestParam(value = "weaponName") String weaponName,
         @RequestParam(value = "attackType") int attackType) {
-
+        weaponService.attackWithWeapon(weaponName, attackType);
         return "redirect:/battle";
     }
 }
