@@ -1,6 +1,15 @@
 package id.ac.ui.cs.advprog.tutorial3.facade.service;
 
+import com.sun.tools.javac.jvm.Code;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.AlphaCodex;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.RunicCodex;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.CodexTranslator;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.Spell;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.AbyssalTransformation;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.CelestialTransformation;
 import org.springframework.stereotype.Service;
+
+import java.security.AlgorithmParameterGenerator;
 
 /*
  * Asumsikan kelas ini sebagai kelas Client
@@ -53,7 +62,13 @@ public class FacadeServiceImpl implements FacadeService {
     */
     @Override
     public String encode(String text){
-        return "Implement me";
+        Spell spell = new Spell(text, AlphaCodex.getInstance());
+        CelestialTransformation celestial = new CelestialTransformation();
+        AbyssalTransformation abyssal = new AbyssalTransformation();
+        Spell cSpell = celestial.encode(spell);
+        Spell aSpell = abyssal.encode(cSpell);
+        Spell runic = CodexTranslator.translate(aSpell, RunicCodex.getInstance());
+        return runic.getText();
     }
 
     /*
@@ -96,7 +111,13 @@ public class FacadeServiceImpl implements FacadeService {
     */
     @Override
     public String decode(String code){
-        return "Implement me";
+        Spell spell = new Spell(code, RunicCodex.getInstance());
+        CelestialTransformation celestial = new CelestialTransformation();
+        AbyssalTransformation abyssal = new AbyssalTransformation();
+        Spell cSpell = celestial.decode(spell);
+        Spell aSpell = celestial.decode(cSpell);
+        Spell alpha = CodexTranslator.translate(aSpell, AlphaCodex.getInstance());
+        return alpha.getText();
     }
 
     @Override
