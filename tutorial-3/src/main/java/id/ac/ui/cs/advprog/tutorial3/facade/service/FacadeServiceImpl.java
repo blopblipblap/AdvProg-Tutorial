@@ -6,6 +6,7 @@ import id.ac.ui.cs.advprog.tutorial3.facade.core.codex.RunicCodex;
 import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.CodexTranslator;
 import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.Spell;
 import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.AbyssalTransformation;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.CaesarTransformation;
 import id.ac.ui.cs.advprog.tutorial3.facade.core.transformation.CelestialTransformation;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +66,9 @@ public class FacadeServiceImpl implements FacadeService {
         Spell spell = new Spell(text, AlphaCodex.getInstance());
         CelestialTransformation celestial = new CelestialTransformation();
         AbyssalTransformation abyssal = new AbyssalTransformation();
-        Spell cSpell = celestial.encode(spell);
+        CaesarTransformation caesar = new CaesarTransformation();
+        Spell caeSpell = caesar.encode(spell);
+        Spell cSpell = celestial.encode(caeSpell);
         Spell aSpell = abyssal.encode(cSpell);
         Spell runic = CodexTranslator.translate(aSpell, RunicCodex.getInstance());
         return runic.getText();
@@ -114,9 +117,11 @@ public class FacadeServiceImpl implements FacadeService {
         Spell spell = new Spell(code, RunicCodex.getInstance());
         CelestialTransformation celestial = new CelestialTransformation();
         AbyssalTransformation abyssal = new AbyssalTransformation();
-        Spell cSpell = celestial.decode(spell);
-        Spell aSpell = celestial.decode(cSpell);
-        Spell alpha = CodexTranslator.translate(aSpell, AlphaCodex.getInstance());
+        CaesarTransformation caesar = new CaesarTransformation();
+        Spell aSpell = CodexTranslator.translate(spell, AlphaCodex.getInstance());
+        Spell cSpell = abyssal.decode(aSpell);
+        Spell caeSpell = celestial.decode(cSpell);
+        Spell alpha = caesar.decode(caeSpell);
         return alpha.getText();
     }
 
