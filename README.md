@@ -6,7 +6,8 @@ Indonesia, Term 2 2020/2021
 ## Table of Contents
 
 1. [Tutorial 0: Basic Spring Boot and Git](tutorial0/readme.md)
-2. [Tutorial1: Strategy and Observer Pattern](tutorial-1/README.md)
+2. [Tutorial 1: Strategy and Observer Pattern](tutorial-1/README.md)
+3. [Tutorial 2: Command and Template Pattern](tutorial-2/README.md)
 
 ## **TL;DR**
 

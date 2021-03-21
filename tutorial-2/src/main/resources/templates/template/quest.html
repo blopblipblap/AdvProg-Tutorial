@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quest</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<h1 class="h1 d-flex justify-content-center">Spirit Pattern Progression</h1>
+<br>
+<div class="card-columns">
+    <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+         th="Saber">
+        <h2> Saber </h2>
+        <div class="card-body">
+            <ul class="pl-3 text-left" th:each="archive: ${Saber}">
+                <li th:text="${archive}"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+         th="Archer">
+        <h2> Archer </h2>
+        <div class="card-body">
+            <ul class="pl-3 text-left" th:each="archive: ${Archer}">
+                <li th:text="${archive}"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card d-flex text-center" style="width: 18rem; margin: 0 auto 10px;"
+         th="Lancer">
+        <h2> Lancer </h2>
+        <div class="card-body">
+            <ul class="pl-3 text-left" th:each="archive: ${Lancer}">
+                <li th:text="${archive}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

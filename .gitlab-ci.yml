@@ -17,3 +17,13 @@ test:t1:
     - /.*tutorial[_-].*1$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
+    
+
+# Tutorial 2 CI Jobs
+test:t2:
+  stage: test
+  script: gradle :tutorial-2:check
+  only:
+    - /.*tutorial[_-].*2$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021
