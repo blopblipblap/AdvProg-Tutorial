@@ -37,13 +37,22 @@ public class CaesarTransformation {
             if (Character.isUpperCase(oldChar)) {
                 int newASCII = oldCharASCII - 65;
                 int newCharCaesar = (newASCII + key * selector) % 26;
+                if (newCharCaesar < 0) {
+                    newCharCaesar += 26;
+                }
                 char newChar = (char) (newCharCaesar + 65);
                 res[i] = newChar;
             } else if (oldChar == ' ') {
                 res[i] = oldChar;
-            } else {
+            } else if (oldCharASCII >= 48 && oldCharASCII <= 57) {
+                res[i] = oldChar;
+            }
+            else {
                 int newASCII = oldCharASCII - 97;
                 int newCharCaesar = (newASCII + key * selector) % 26;
+                if (newCharCaesar < 0) {
+                    newCharCaesar += 26;
+                }
                 char newChar = (char) (newCharCaesar + 97);
                 res[i] = newChar;
             }
