@@ -2,6 +2,7 @@ image: gradle:6.8.3-jdk11
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  JACOCO_CSV_LOCATION: '$CI_PROJECT_DIR/tutorial-3/build/jacoco/jacoco.csv'
 
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
@@ -31,8 +32,12 @@ test:t2:
 
 test:t3:
   stage: test
-  script: gradle :tutorial-3:check
+  script:
+    - gradle :tutorial-3:check
+    - ./gradlew :tutorial-3:test
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print 100*covered/instructions, "% covered" }' $JACOCO_CSV_LOCATION
   only:
     - /.*tutorial[_-].*3$/
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
+
