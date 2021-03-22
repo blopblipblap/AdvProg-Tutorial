@@ -36,6 +36,6 @@ test {
 jacocoTestReport {
     reports {
         csv.enabled true
-        csv.destination file("${buildDir}/jacoco.csv")
+        csv.destination file("${buildDir}/jacoco/jacoco.csv")
     }
 }
