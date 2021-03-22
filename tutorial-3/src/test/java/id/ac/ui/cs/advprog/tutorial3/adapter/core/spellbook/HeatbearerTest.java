@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook;
 
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.Spell;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO: add tests
@@ -80,4 +82,39 @@ public class HeatbearerTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testHeatbearerSmallSpellReturnValue() throws Exception {
+        Spellbook mockHeatbearer = new Heatbearer("Lisa");
+
+        String smallSpell = mockHeatbearer.smallSpell();
+
+        assertThat(smallSpell).isEqualTo("Enemy scarred");
+    }
+
+    @Test
+    public void testHeatbearerLargeSpellReturnValue() throws Exception {
+        Spellbook mockHeatbearer = new Heatbearer("Lisa");
+
+        String largeSpell = mockHeatbearer.largeSpell();
+
+        assertThat(largeSpell).isEqualTo("EXPUULOOOOSHHHIOONNNN!");
+    }
+
+    @Test
+    public void testHeatbearerGetNameReturnValue() throws Exception {
+        Spellbook mockHeatbearer = new Heatbearer("Lisa");
+
+        String weapName = mockHeatbearer.getName();
+
+        assertThat(weapName).isEqualTo("Heat Bearer");
+    }
+
+    @Test
+    public void testHeatbearerGetHolderReturnValue() throws Exception {
+        Spellbook mockHeatbearer = new Heatbearer("Lisa");
+
+        String holderName = mockHeatbearer.getHolderName();
+
+        assertThat(holderName).isEqualTo("Lisa");
+    }
 }

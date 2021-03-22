@@ -1,7 +1,10 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.weaponadapters;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.Bow;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.bow.IonicBow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.TestPropertySource;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -11,6 +14,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 // TODO: add tests
 public class BowAdapterTest {
@@ -95,4 +100,48 @@ public class BowAdapterTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testBowAdapterNormalAimHasToBeFirst() throws Exception {
+        Bow mockBow = new IonicBow("Venti");
+        BowAdapter bowAdapter = new BowAdapter(mockBow);
+
+        assertEquals(mockBow.shootArrow(false),
+                bowAdapter.normalAttack());
+    }
+
+    @Test
+    public void testBowAdapterChangeAim() throws Exception {
+        Bow mockBow = new IonicBow("Venti");
+        BowAdapter bowAdapter = new BowAdapter(mockBow);
+
+        //Entering Aim Shot
+        assertEquals("Entered aim shot mode",
+                bowAdapter.chargedAttack());
+        assertEquals(mockBow.shootArrow(true),
+                bowAdapter.normalAttack());
+
+        //Leaving Aim Shot
+        assertEquals("Leaving aim shot mode",
+                bowAdapter.chargedAttack());
+        assertEquals(mockBow.shootArrow(false),
+                bowAdapter.normalAttack());
+    }
+
+    @Test
+    public void testBowAdapterGetNameReturnValue() {
+        Bow mockBow = new IonicBow("Venti");
+        BowAdapter bowAdapter = new BowAdapter(mockBow);
+
+        assertEquals(mockBow.getName(),
+                bowAdapter.getName());
+    }
+
+    @Test
+    public void testBowAdapterGetHolderReturnValue() {
+        Bow mockBow = new IonicBow("Venti");
+        BowAdapter bowAdapter = new BowAdapter(mockBow);
+
+        assertEquals(mockBow.getHolderName(),
+                bowAdapter.getHolderName());
+    }
 }

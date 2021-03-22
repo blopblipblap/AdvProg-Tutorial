@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO: add tests
@@ -80,4 +81,39 @@ public class SeawardPrideTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testSeawardPrideNormalAttackReturnValue() throws Exception {
+        Weapon mockSeawardPride = new SeawardPride("Noelle");
+
+        String normalAttack = mockSeawardPride.normalAttack();
+
+        assertThat(normalAttack).isEqualTo("Enemy got hit by big weapon");
+    }
+
+    @Test
+    public void testSeawardPrideChargedAttackReturnValue() throws Exception {
+        Weapon mockSeawardPride = new SeawardPride("Noelle");
+
+        String chargedAttack = mockSeawardPride.chargedAttack();
+
+        assertThat(chargedAttack).isEqualTo("Lets go spinny spin spin");
+    }
+
+    @Test
+    public void testSeawardPrideGetNameReturnValue() throws Exception {
+        Weapon mockSeawardPride = new SeawardPride("Noelle");
+
+        String weapName = mockSeawardPride.getName();
+
+        assertThat(weapName).isEqualTo("Seaward Pride");
+    }
+
+    @Test
+    public void testSeawardPrideGetHolderReturnValue() throws Exception {
+        Weapon mockSeawardPride = new SeawardPride("Noelle");
+
+        String holderName = mockSeawardPride.getHolderName();
+
+        assertThat(holderName).isEqualTo("Noelle");
+    }
 }

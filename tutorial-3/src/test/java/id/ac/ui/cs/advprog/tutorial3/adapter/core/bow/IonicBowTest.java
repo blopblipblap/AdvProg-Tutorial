@@ -9,8 +9,10 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
 // TODO: add tests
 public class IonicBowTest {
@@ -72,4 +74,30 @@ public class IonicBowTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testIonicBowShootArrowReturnValue() throws Exception {
+        Bow mockIonicBow = new IonicBow("Venti");
+
+        String normalAim = mockIonicBow.shootArrow(false);
+        String aimShot = mockIonicBow.shootArrow(true);
+
+        assertThat(normalAim).isEqualTo("Separated one atom from the enemy");
+        assertThat(aimShot).isEqualTo("Arrow reacted with the enemy's protons");
+    }
+
+    @Test
+    public void testIonicBowGetNameReturnValue() throws Exception {
+        Bow mockIonicBow = new IonicBow("Venti");
+        String weapName = mockIonicBow.getName();
+
+        assertThat(weapName).isEqualTo("Ionic Bow");
+    }
+
+    @Test
+    public void testIonicBowGetHolderReturnValue() throws Exception {
+        Bow mockIonicBow = new IonicBow("Venti");
+        String holderName = mockIonicBow.getHolderName();
+
+        assertThat(holderName).isEqualTo("Venti");
+    }
 }

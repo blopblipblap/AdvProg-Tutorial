@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO: add tests
@@ -80,4 +81,39 @@ public class StaffOfHoumoTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testStaffOfHoumoNormalAttackReturnValue() throws Exception {
+        Weapon mockHoumo = new StaffOfHoumo("Zhongli");
+
+        String normalAttack = mockHoumo.normalAttack();
+
+        assertThat(normalAttack).isEqualTo("Enemy got stabbed");
+    }
+
+    @Test
+    public void testStaffOfHoumoChargedAttackReturnValue() throws Exception {
+        Weapon mockHoumo = new StaffOfHoumo("Zhongli");
+
+        String chargedAttack = mockHoumo.chargedAttack();
+
+        assertThat(chargedAttack).isEqualTo("Lets go lemnistatic v2");
+    }
+
+    @Test
+    public void testStaffOfHoumoGetNameReturnValue() throws Exception {
+        Weapon mockHoumo = new StaffOfHoumo("Zhongli");
+
+        String weapName = mockHoumo.getName();
+
+        assertThat(weapName).isEqualTo("Staff of Houmo");
+    }
+
+    @Test
+    public void testStaffOfHoumoGetHolderReturnValue() throws Exception {
+        Weapon mockHoumo = new StaffOfHoumo("Zhongli");
+
+        String holderName = mockHoumo.getHolderName();
+
+        assertThat(holderName).isEqualTo("Zhongli");
+    }
 }

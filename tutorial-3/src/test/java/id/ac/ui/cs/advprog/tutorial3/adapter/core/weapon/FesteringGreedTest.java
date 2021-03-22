@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO: add tests
@@ -79,4 +80,39 @@ public class FesteringGreedTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testFesteringGreedNormalAttackReturnValue() throws Exception {
+        Weapon mockFestering = new FesteringGreed("Albedo");
+
+        String normalAttack = mockFestering.normalAttack();
+
+        assertThat(normalAttack).isEqualTo("Enemy is hurt");
+    }
+
+    @Test
+    public void testFesteringGreedChargedAttackReturnValue() throws Exception {
+        Weapon mockFestering = new FesteringGreed("Albedo");
+
+        String chargedAttack = mockFestering.chargedAttack();
+
+        assertThat(chargedAttack).isEqualTo("HIYAAA!!");
+    }
+
+    @Test
+    public void testFesteringGreedGetNameReturnValue() throws Exception {
+        Weapon mockFestering = new FesteringGreed("Albedo");
+
+        String weapName = mockFestering.getName();
+
+        assertThat(weapName).isEqualTo("Festering Greed");
+    }
+
+    @Test
+    public void testFesteringGreedGetHolderReturnValue() throws Exception {
+        Weapon mockFestering = new FesteringGreed("Albedo");
+
+        String holderName = mockFestering.getHolderName();
+
+        assertThat(holderName).isEqualTo("Albedo");
+    }
 }

@@ -1,5 +1,8 @@
 package id.ac.ui.cs.advprog.tutorial3.adapter.core.weaponadapters;
 
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook.Spellbook;
+import id.ac.ui.cs.advprog.tutorial3.adapter.core.spellbook.TheWindjedi;
+import id.ac.ui.cs.advprog.tutorial3.facade.core.misc.Spell;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -95,4 +98,50 @@ public class SpellbookAdapterTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testSpellbookAdapterNormalAttackShouldBeSmallSpell() throws Exception {
+        Spellbook mockSpellbook = new TheWindjedi("Barbara");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(mockSpellbook);
+
+        assertEquals(mockSpellbook.smallSpell(),
+                spellbookAdapter.normalAttack());
+    }
+
+    @Test
+    public void testSpellbookAdapterChargedAttackShouldBeLargeSpell() throws Exception {
+        Spellbook mockSpellbook = new TheWindjedi("Barbara");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(mockSpellbook);
+
+        assertEquals(mockSpellbook.largeSpell(),
+                spellbookAdapter.chargedAttack());
+    }
+
+    @Test
+    public void testSpellbookAdapterCannotDoLargeSpellTwoTimesInARow() throws Exception {
+        Spellbook mockSpellbook = new TheWindjedi("Barbara");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(mockSpellbook);
+
+        assertEquals(mockSpellbook.largeSpell(),
+                spellbookAdapter.chargedAttack());
+        assertEquals("Magic power not enough for large spell",
+                spellbookAdapter.chargedAttack());
+    }
+
+    @Test
+    public void testSpellbookAdapterGetNameReturnValue() throws Exception {
+        Spellbook mockSpellbook = new TheWindjedi("Barbara");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(mockSpellbook);
+
+        assertEquals(mockSpellbook.getName(),
+                spellbookAdapter.getName());
+    }
+
+    @Test
+    public void testSpellbookAdapterGetHolderReturnValue() throws Exception {
+        Spellbook mockSpellbook = new TheWindjedi("Barbara");
+        SpellbookAdapter spellbookAdapter = new SpellbookAdapter(mockSpellbook);
+
+        assertEquals(mockSpellbook.getHolderName(),
+                spellbookAdapter.getHolderName());
+    }
 }

@@ -9,6 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO: add tests
@@ -80,4 +81,39 @@ public class FullMoonPikeTest {
     }
 
     // TODO: buat test untuk menguji hasil dari pemanggilan method
+    @Test
+    public void testFullMoonPikeNormalAttackReturnValue() throws Exception {
+        Weapon mockFullMoonPike = new FullMoonPike("Xiao");
+
+        String normalAttack = mockFullMoonPike.normalAttack();
+
+        assertThat(normalAttack).isEqualTo("Physical go brr");
+    }
+
+    @Test
+    public void testFullMoonPikeChargedAttackReturnValue() throws Exception {
+        Weapon mockFullMoonPike = new FullMoonPike("Xiao");
+
+        String chargedAttack = mockFullMoonPike.chargedAttack();
+
+        assertThat(chargedAttack).isEqualTo("Charge ahead!");
+    }
+
+    @Test
+    public void testFullMoonPikeGetNameReturnValue() throws Exception {
+        Weapon mockFullMoonPike = new FullMoonPike("Xiao");
+
+        String weapName = mockFullMoonPike.getName();
+
+        assertThat(weapName).isEqualTo("Full Moon Pike");
+    }
+
+    @Test
+    public void testFullMoonPikeGetHolderReturnValue() throws Exception {
+        Weapon mockFullMoonPike = new FullMoonPike("Xiao");
+
+        String holderName = mockFullMoonPike.getHolderName();
+
+        assertThat(holderName).isEqualTo("Xiao");
+    }
 }
