@@ -34,7 +34,7 @@ test:t3:
   stage: test
   script:
     - gradle :tutorial-3:check
-    - gradle :tutorial-3:test
+    - gradle :tutorial-3:jacocoTestReport
     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print 100*covered/instructions, "% covered" }' $JACOCO_CSV_LOCATION
   only:
     - /.*tutorial[_-].*3$/
