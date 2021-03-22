@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.2.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'jacoco'
 }
 
 
@@ -29,4 +30,12 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy("jacocoTestReport")
+}
+
+jacocoTestReport {
+    reports {
+        csv.enabled true
+        csv.destination file("${buildDir}/jacoco.csv")
+    }
 }
