@@ -7,7 +7,7 @@ import id.ac.ui.cs.advprog.tutorial3.adapter.core.weapon.Weapon;
 public class SpellbookAdapter implements Weapon {
 
     private Spellbook spellbook;
-    private int sign;
+    private int sign = 0;
 
     public SpellbookAdapter(Spellbook spellbook) {
         this.spellbook = spellbook;
@@ -15,16 +15,15 @@ public class SpellbookAdapter implements Weapon {
 
     @Override
     public String normalAttack() {
-        this.sign = 0;
         return spellbook.smallSpell();
     }
 
     @Override
     public String chargedAttack() {
-        if (this.sign == 1) {
+        this.sign += 1;
+        if (this.sign % 2 == 0) {
             return "Magic power not enough for large spell";
         } else {
-            this.sign = 1;
             return spellbook.largeSpell();
         }
     }

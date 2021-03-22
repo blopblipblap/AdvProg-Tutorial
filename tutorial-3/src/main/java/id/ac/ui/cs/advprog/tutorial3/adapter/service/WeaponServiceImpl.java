@@ -38,21 +38,6 @@ public class WeaponServiceImpl implements WeaponService {
     private List<Weapon> weap = new ArrayList<>();
 
 
-    @PostConstruct
-    public void init() {
-        List<Bow> bowList = bowRepository.findAll();
-        for (int i = 0; i < bowList.size(); i++) {
-            Weapon bow = new BowAdapter(bowList.get(i));
-            weaponRepository.save(bow);
-        }
-
-        List<Spellbook> spellbookList = spellbookRepository.findAll();
-        for (int i = 0; i < spellbookList.size(); i++) {
-            Weapon spellbook = new SpellbookAdapter(spellbookList.get(i));
-            weaponRepository.save(spellbook);
-        }
-    }
-
     // TODO: implement me
     @Override
     public List<Weapon> findAll() {
