@@ -1,4 +1,4 @@
-[![Coverage](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/badges/master/coverage.svg)](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/-/graphs/master/charts)
+[![coverage report](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/badges/tutorial-3/21/-/settings/ci_cd/coverage.svg)](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/-/commits/tutorial-3/21/-/settings/ci_cd)
 # J̴̪̟̺̅̽͗̚̚͝Ȗ̷̦̈́͆̍̚S̷̝̖̐̃͑̈́͑͠ͅT̷̨̺̣̻̩͐̇̎ ̷̤̠̼̮̾͌̊̀͆͘E̴̦̮̤̫͐̊̓̀͝͝M̸̭̤͈̬̌͑̀̉̏̕P̷̡͖͐́̏͠Ṫ̸̛͓̜͖̦̜̞͌̇̋̋Ÿ̶̧́͗̆͠ ̴̛̰͙̉̂͠͠Ḽ̷̱̇͂͊͑̍ͅI̴̲̤͖̭͂̂͂͑̊͘S̸̠̀̾͐̉͘Ţ̸͉̹̼̞́͆̽͑͝
 
 ## Adapter Pattern
