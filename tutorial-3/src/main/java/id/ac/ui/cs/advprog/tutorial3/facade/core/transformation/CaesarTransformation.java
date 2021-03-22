@@ -30,32 +30,14 @@ public class CaesarTransformation {
         Codex codex = spell.getCodex();
         int selector = encode ? 1 : -1;
         int n = text.length();
+        int codexSize = codex.getCharSize();
         char[] res = new char[n];
         for(int i = 0; i < n; i++){
             char oldChar = text.charAt(i);
-            int oldCharASCII = (int) oldChar;
-            if (Character.isUpperCase(oldChar)) {
-                int newASCII = oldCharASCII - 65;
-                int newCharCaesar = (newASCII + key * selector) % 26;
-                if (newCharCaesar < 0) {
-                    newCharCaesar += 26;
-                }
-                char newChar = (char) (newCharCaesar + 65);
-                res[i] = newChar;
-            } else if (oldChar == ' ') {
-                res[i] = oldChar;
-            } else if (oldCharASCII >= 48 && oldCharASCII <= 57) {
-                res[i] = oldChar;
-            }
-            else {
-                int newASCII = oldCharASCII - 97;
-                int newCharCaesar = (newASCII + key * selector) % 26;
-                if (newCharCaesar < 0) {
-                    newCharCaesar += 26;
-                }
-                char newChar = (char) (newCharCaesar + 97);
-                res[i] = newChar;
-            }
+            int charIdx = codex.getIndex(oldChar);
+            int newCharIdx = charIdx + key * selector;
+            newCharIdx = newCharIdx < 0 ? codexSize + newCharIdx : newCharIdx % codexSize;
+            res[i] = codex.getChar(newCharIdx);
         }
         return new Spell(new String(res), codex);
     }
