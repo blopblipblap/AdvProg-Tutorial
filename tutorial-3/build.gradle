@@ -30,10 +30,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    finalizedBy("jacocoTestReport")
+    finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
+    dependsOn test
     reports {
         csv.enabled true
         csv.destination file("${buildDir}/jacoco/jacoco.csv")
