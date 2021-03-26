@@ -4,6 +4,7 @@ import id.ac.ui.cs.advprog.tutorial1.observer.repository.QuestRepository;
 
 public class AgileAdventurer extends Adventurer {
 
+
     public AgileAdventurer(Guild guild) {
         this.name = "Agile";
         this.guild = guild;

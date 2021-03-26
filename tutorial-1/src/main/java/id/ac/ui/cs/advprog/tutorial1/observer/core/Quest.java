@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.tutorial1.observer.core;
 
 public class Quest {
+
     private String title;
     private String type;
 

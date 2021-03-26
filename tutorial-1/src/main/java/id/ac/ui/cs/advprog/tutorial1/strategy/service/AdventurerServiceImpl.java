@@ -12,6 +12,7 @@ public class AdventurerServiceImpl implements AdventurerService {
 
     private final StrategyRepository strategyRepository;
 
+
     public AdventurerServiceImpl(
             AdventurerRepository adventurerRepository,
             StrategyRepository strategyRepository) {

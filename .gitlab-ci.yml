@@ -40,3 +40,10 @@ test:t3:
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
 
+test:t4:
+  stage: test
+  script: gradle :tutorial-4:check
+  only:
+    - /.*tutorial[_-].*4$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021

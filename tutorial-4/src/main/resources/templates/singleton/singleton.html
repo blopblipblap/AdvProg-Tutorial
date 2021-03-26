@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WanPlus Restaurant Home</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<h3 class="h3 d-flex justify-content-center">Welcome to WanPlus Restaurant </h3>
+<br>
+<br>
+<div class="card d-flex text-center" style="width: 20rem; margin: 0 auto 10px;">
+    <form class="form-group"
+          th:action="@{/singleton/order-a-drink}"
+          method="post">
+        <label class="col-form-label" for="drink-textarea">Your Drink Order</label>
+        <textarea class="form-control"
+                  name="drink"
+                  id="drink-textarea"
+                  placeholder="Write your order here..."
+                  required></textarea>
+        <br>
+        <button class="btn btn-sm btn-primary" type="submit">Order a drink!</button>
+    </form>
+    <div class="border" style="text-align: center; width: 20rem; margin: auto;">
+        <p style="display: inline-block"
+           th:text="${orderDrink.getDrink()} != null ? ${orderDrink.getDrink()} : 'No Order yet. Order first.'">
+        </p>
+    </div>
+</div>
+<br>
+<br>
+<div class="card d-flex text-center" style="width: 20rem; margin: 0 auto 10px;">
+    <form class="form-group"
+          th:action="@{/singleton/order-a-food}"
+          method="post">
+        <label class="col-form-label" for="food-textarea">Your Food Order</label>
+        <textarea class="form-control"
+                  name="food"
+                  id="food-textarea"
+                  placeholder="Write your order here..."
+                  required></textarea>
+        <br>
+        <button class="btn btn-sm btn-primary" type="submit">Order a food!</button>
+    </form>
+    <div class="border" style="text-align: center; width: 20rem; margin: auto;">
+        <p style="display: inline-block"
+           th:text="${orderFood.getFood()} != null ? ${orderFood.getFood()} : 'No Order yet. Order first.'">
+        </p>
+    </div>
+</div>
+<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="/webjars/popper.js/1.16.0/popper.min.js"></script>
+<script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
