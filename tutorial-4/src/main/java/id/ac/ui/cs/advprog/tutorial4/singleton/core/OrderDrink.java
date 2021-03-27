@@ -1,5 +1,7 @@
 package id.ac.ui.cs.advprog.tutorial4.singleton.core;
 
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
+
 import java.lang.Thread;
 
 public class OrderDrink {
@@ -21,7 +23,10 @@ public class OrderDrink {
 
     //Todo : Complete Me with lazy instantiation approach
     public static OrderDrink getInstance() {
-        return null;
+        if (orderDrink == null) {
+            orderDrink = new OrderDrink();
+        }
+        return orderDrink;
     }
 
     public String getDrink() {

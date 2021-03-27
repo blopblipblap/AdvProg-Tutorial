@@ -20,7 +20,7 @@ public class OrderFood {
 
     //Todo : Complete Me with eager instantiation approach
     public static OrderFood getInstance() {
-        return null;
+        return orderFood;
     }
 
     public String getFood() {
