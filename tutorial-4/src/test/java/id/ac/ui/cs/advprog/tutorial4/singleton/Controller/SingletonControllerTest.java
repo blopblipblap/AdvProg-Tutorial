@@ -1,7 +1,10 @@
 package id.ac.ui.cs.advprog.tutorial4.singleton.Controller;
 
 import id.ac.ui.cs.advprog.tutorial4.singleton.controller.SingletonController;
+import id.ac.ui.cs.advprog.tutorial4.singleton.core.OrderDrink;
+import id.ac.ui.cs.advprog.tutorial4.singleton.core.OrderFood;
 import id.ac.ui.cs.advprog.tutorial4.singleton.service.OrderService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +12,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,13 +27,19 @@ public class SingletonControllerTest {
     @MockBean
     private OrderService orderService;
 
+    @BeforeEach
+    public void init() {
+        when(orderService.getDrink()).thenReturn(OrderDrink.getInstance());
+        when(orderService.getFood()).thenReturn(OrderFood.getInstance());
+    }
+
     @Test
     public void whenWanPlusHomeCalledShouldBeCorrect() throws Exception {
         mockMvc.perform(get("/singleton/"))
             .andExpect(status().isOk())
             .andExpect(handler().methodName("wanPlusRestaurantHome"))
             .andExpect(model().attributeExists("orderDrink"))
-            .andExpect(view().name("orderFood"));
+            .andExpect(view().name("singleton/singleton"));
         verify(orderService, times(1)).getDrink();
         verify(orderService, times(1)).getFood();
     }

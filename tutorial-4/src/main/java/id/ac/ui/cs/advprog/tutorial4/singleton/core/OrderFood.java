@@ -33,6 +33,6 @@ public class OrderFood {
 
     @Override
     public String toString() {
-        return food;
+        return food != null ? food : "";
     }
 }

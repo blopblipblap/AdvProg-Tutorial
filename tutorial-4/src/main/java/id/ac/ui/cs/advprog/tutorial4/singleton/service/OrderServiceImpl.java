@@ -7,13 +7,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    private OrderDrink orderDrink = OrderDrink.getInstance();
+    private OrderDrink orderDrink;
 
     public void orderADrink(String drink) {
+        if (orderDrink == null) {
+            orderDrink = OrderDrink.getInstance();
+        }
         orderDrink.setDrink(drink);
     }
 
     public OrderDrink getDrink() {
+        if (orderDrink == null) {
+            orderDrink = OrderDrink.getInstance();
+        }
         return orderDrink;
     }
 
