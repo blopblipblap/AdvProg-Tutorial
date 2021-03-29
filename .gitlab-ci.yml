@@ -42,7 +42,10 @@ test:t3:
 
 test:t4:
   stage: test
-  script: gradle :tutorial-4:check
+  script:
+    - gradle :tutorial-4:check
+    - gradle :tutorial-4:jacocoTestReport
+    - cat tutorial-4/build/jacocoHtml/index.html
   only:
     - /.*tutorial[_-].*4$/
   except:
