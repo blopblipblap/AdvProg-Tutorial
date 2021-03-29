@@ -7,12 +7,12 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.noodle.Noodle;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class Menu {
-    String name;
-    Noodle noodle;
-    Meat meat;
-    Topping topping;
-    Flavor flavor;
-    IngredientFactory ingredientFactory;
+    protected String name;
+    protected Noodle noodle;
+    protected Meat meat;
+    protected Topping topping;
+    protected Flavor flavor;
+    protected IngredientFactory ingredientFactory;
 
     //To Do : Complete Me
     //Silahkan tambahkan parameter jika dibutuhkan
