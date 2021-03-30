@@ -10,6 +10,11 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Mushroom;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class LiyuanSobaFactory implements IngredientFactory{
+    //Ingridients:
+    //Noodle: Soba
+    //Meat: Beef
+    //Topping: Mushroom
+    //Flavor: Sweet
 
     @Override
     public Flavor createFlavor() {

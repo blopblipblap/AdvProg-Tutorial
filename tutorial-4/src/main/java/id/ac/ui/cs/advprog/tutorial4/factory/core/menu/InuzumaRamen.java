@@ -8,11 +8,7 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.noodle.Noodle;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class InuzumaRamen extends Menu {
-    //Ingridients:
-    //Noodle: Ramen
-    //Meat: Pork
-    //Topping: Boiled Egg
-    //Flavor: Spicy
+
     public InuzumaRamen(String name){
         super(name, new InuzumaRamenFactory());
         noodle = ingredientFactory.createNoodle();

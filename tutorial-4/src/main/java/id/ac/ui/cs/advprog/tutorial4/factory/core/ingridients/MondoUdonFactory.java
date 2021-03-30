@@ -10,6 +10,12 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Cheese;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class MondoUdonFactory implements IngredientFactory{
+    //Ingridients:
+    //Noodle: Udon
+    //Meat: Chicken
+    //Topping: Cheese
+    //Flavor: Salty
+
     @Override
     public Flavor createFlavor() {
         return new Salty();

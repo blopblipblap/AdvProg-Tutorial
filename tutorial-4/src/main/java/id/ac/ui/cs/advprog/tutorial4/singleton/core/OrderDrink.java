@@ -21,7 +21,7 @@ public class OrderDrink {
 
     }
 
-    //Todo : Complete Me with lazy instantiation approach
+    //Lazy instantiation
     public static OrderDrink getInstance() {
         if (orderDrink == null) {
             orderDrink = new OrderDrink();

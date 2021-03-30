@@ -10,6 +10,12 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Flower;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class SnevnezhaShiratakiFactory implements IngredientFactory{
+    //Ingridients:
+    //Noodle: Shirataki
+    //Meat: Fish
+    //Topping: Flower
+    //Flavor: Umami
+
     @Override
     public Flavor createFlavor() {
         return new Umami();

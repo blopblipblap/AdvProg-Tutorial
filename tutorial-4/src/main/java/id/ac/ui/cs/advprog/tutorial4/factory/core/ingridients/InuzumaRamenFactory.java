@@ -10,6 +10,11 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.BoiledEgg;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.topping.Topping;
 
 public class InuzumaRamenFactory implements IngredientFactory{
+    //Ingridients:
+    //Noodle: Ramen
+    //Meat: Pork
+    //Topping: Boiled Egg
+    //Flavor: Spicy
 
     @Override
     public Flavor createFlavor() {

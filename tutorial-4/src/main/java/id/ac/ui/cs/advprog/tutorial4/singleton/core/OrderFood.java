@@ -18,7 +18,7 @@ public class OrderFood {
         }
     }
 
-    //Todo : Complete Me with eager instantiation approach
+    //Eager instantiation
     public static OrderFood getInstance() {
         return orderFood;
     }

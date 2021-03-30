@@ -4,11 +4,7 @@ import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.IngredientFactory;
 import id.ac.ui.cs.advprog.tutorial4.factory.core.ingridients.LiyuanSobaFactory;
 
 public class LiyuanSoba extends Menu {
-    //Ingridients:
-    //Noodle: Soba
-    //Meat: Beef
-    //Topping: Mushroom
-    //Flavor: Sweet
+
     public LiyuanSoba(String name) {
         super(name, new LiyuanSobaFactory());
         noodle = ingredientFactory.createNoodle();
