@@ -1,6 +1,13 @@
 package id.ac.ui.cs.advprog.tutorial1.strategy.core;
 
 public class KnightAdventurer extends Adventurer {
+    public KnightAdventurer() {
+        attackBehavior = new AttackWithSword();
+        defenseBehavior = new DefendWithArmor();
+    }
 
-    //ToDo: Complete me
+    public String getAlias() {
+        return "Knight Adventurer";
+    }
+
 }
