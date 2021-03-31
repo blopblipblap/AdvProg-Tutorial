@@ -10,6 +10,7 @@ Indonesia, Term 2 2020/2021
 3. [Tutorial 2: Command and Template Pattern](tutorial-2/README.md)
 4. [Tutorial 3: Adapter and Facade Pattern](tutorial-3/readme.md)
 5. [Tutorial 4: Abstract Factory and Singleton Pattern](tutorial-4/README.md)
+6. [Tutorial 5: MVC, REST API, and Data Persistence](tutorial-5/README.md)
 
 ## **TL;DR**
 
