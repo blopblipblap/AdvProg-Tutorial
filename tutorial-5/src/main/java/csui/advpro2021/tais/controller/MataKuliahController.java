@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/mata-kuliah")
-public class MataKuliahController {
+public class  MataKuliahController {
     @Autowired
     private MataKuliahService mataKuliahService;
 
