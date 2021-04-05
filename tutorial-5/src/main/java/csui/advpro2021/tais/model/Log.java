@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -21,17 +23,20 @@ public class Log {
     private Integer idLog;
 
     @Column(name = "startLog")
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date startLog;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime startLog;
 
     @Column(name = "endLog")
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date finishLog;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime finishLog;
 
     @Column(name = "deskripsi")
     private String deskripsi;
 
-    public Log(Integer idLog, Date startLog, Date finishLog, String deskripsi) {
+    @Column(name = "jamKerja")
+    private Long jamKerja;
+
+    public Log(Integer idLog, LocalDateTime startLog, LocalDateTime finishLog, String deskripsi) {
         this.idLog = idLog;
         this.startLog = startLog;
         this.finishLog = finishLog;

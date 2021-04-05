@@ -3,10 +3,7 @@ package csui.advpro2021.tais.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mahasiswa")
@@ -30,11 +27,24 @@ public class Mahasiswa {
     @Column(name = "no_telp")
     private String noTelp;
 
+    @ManyToOne
+    @JoinColumn(name = "daftar_matkul", referencedColumnName = "kode_matkul")
+    private MataKuliah mataKuliah;
+
+    @ManyToOne
+    @JoinColumn(name = "asdos_matkul", referencedColumnName = "kode_matkul")
+    private MataKuliah matkulAsdosan;
+
+
     public Mahasiswa(String npm, String nama, String email, String ipk, String noTelp) {
         this.npm = npm;
         this.nama = nama;
         this.email = email;
         this.ipk = ipk;
         this.noTelp = noTelp;
+    }
+
+    public void setMataKuliah(MataKuliah mataKuliah) {
+        this.mataKuliah = mataKuliah;
     }
 }

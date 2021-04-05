@@ -1,9 +1,15 @@
 package csui.advpro2021.tais.service;
 
+import csui.advpro2021.tais.model.LaporanPembayaran;
 import csui.advpro2021.tais.model.Log;
 import csui.advpro2021.tais.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.*;
 
 @Service
 public class LogServiceImpl implements LogService{
@@ -13,6 +19,7 @@ public class LogServiceImpl implements LogService{
     @Override
     public Log createLog(Log log) {
         logRepository.save(log);
+        hitungJamKerja(log.getIdLog(), log);
         return log;
     }
 
@@ -36,5 +43,23 @@ public class LogServiceImpl implements LogService{
     @Override
     public void deleteLogByIdLog(Integer idLog) {
         logRepository.deleteById(idLog);
+    }
+
+    @Override
+    public Log hitungJamKerja(Integer idLog, Log log) {
+        LocalDateTime startLog = log.getStartLog();
+        LocalDateTime finishLog = log.getFinishLog();
+        Duration durasi = Duration.between(startLog,finishLog);
+
+        Long jamKerja = durasi.toHours();
+        Long pembayaran = 350*jamKerja;
+        Month month = startLog.getMonth();
+        LaporanPembayaran laporanPembayaran = new LaporanPembayaran(month, jamKerja, pembayaran);
+
+        log.setJamKerja(jamKerja);
+        log.setIdLog(idLog);
+        logRepository.save(log);
+
+        return log;
     }
 }

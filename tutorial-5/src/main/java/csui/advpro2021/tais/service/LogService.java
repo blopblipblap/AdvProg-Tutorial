@@ -12,4 +12,6 @@ public interface LogService {
     Log updateLog(Integer idLog, Log log);
 
     void deleteLogByIdLog(Integer idLog);
+
+    Log hitungJamKerja(Integer idLog, Log log);
 }

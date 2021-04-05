@@ -1,7 +1,9 @@
 package csui.advpro2021.tais.controller;
 
 import csui.advpro2021.tais.model.Mahasiswa;
+import csui.advpro2021.tais.model.MataKuliah;
 import csui.advpro2021.tais.service.MahasiswaService;
+import csui.advpro2021.tais.service.MataKuliahService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,4 +49,11 @@ public class MahasiswaController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping(path = "/{npm}/{kodeMatkul}", produces = {"application/json"})
+    @ResponseBody
+    public ResponseEntity enrollMatkul(@PathVariable(value = "npm") String npm, @RequestBody Mahasiswa mahasiswa,
+                                       @PathVariable(value = "kodeMatkul") String kodeMatkul) {
+        return ResponseEntity.ok(
+                mahasiswaService.enrollMataKuliah(npm, mahasiswa, kodeMatkul));
+    }
 }
