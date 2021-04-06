@@ -41,7 +41,10 @@ public class MahasiswaServiceImpl implements MahasiswaService {
 
     @Override
     public void deleteMahasiswaByNPM(String npm) {
-        mahasiswaRepository.deleteById(npm);
+        Mahasiswa mahasiswa = mahasiswaRepository.findByNpm(npm);
+        if (mahasiswa.getMataKuliah() == null) {
+            mahasiswaRepository.deleteById(npm);
+        }
     }
 
     @Override
