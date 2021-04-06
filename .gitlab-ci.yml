@@ -54,7 +54,7 @@ test:t5:
   script:
     - gradle :tutorial-5:check
     - gradle :tutorial-5:jacocoTestReport
-    - cat tutorial-5/build/reports/jacoco/test/html/index.html
+    - cat tutorial-5/build/jacocoHtml/index.html
   services:
     - "postgres:latest"
   variables:
