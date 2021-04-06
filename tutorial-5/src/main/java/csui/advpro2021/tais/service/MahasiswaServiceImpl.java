@@ -7,6 +7,8 @@ import csui.advpro2021.tais.repository.MataKuliahRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MahasiswaServiceImpl implements MahasiswaService {
     @Autowired
@@ -43,7 +45,8 @@ public class MahasiswaServiceImpl implements MahasiswaService {
     }
 
     @Override
-    public Mahasiswa enrollMataKuliah(String npm, Mahasiswa mahasiswa, String kodeMatkul) {
+    public Mahasiswa enrollMataKuliah(String npm, String kodeMatkul) {
+        Mahasiswa mahasiswa = mahasiswaRepository.findByNpm(npm);
         MataKuliah mataKuliah = mataKuliahRepository.findByKodeMatkul(kodeMatkul);
         mahasiswa.setMataKuliah(mataKuliah);
 
@@ -53,9 +56,12 @@ public class MahasiswaServiceImpl implements MahasiswaService {
     }
 
     @Override
-    public Mahasiswa enrollAsdos(String npm, Mahasiswa mahasiswa, String kodeMatkul) {
+    public Mahasiswa enrollAsdos(String npm, String kodeMatkul) {
+        Mahasiswa mahasiswa = mahasiswaRepository.findByNpm(npm);
         MataKuliah mataKuliah = mataKuliahRepository.findByKodeMatkul(kodeMatkul);
         mahasiswa.setMatkulAsdosan(mataKuliah);
+        List<Mahasiswa> asdos = mataKuliah.getAsdos();
+        asdos.add(mahasiswa);
 
         mahasiswa.setNpm(npm);
         mahasiswaRepository.save(mahasiswa);

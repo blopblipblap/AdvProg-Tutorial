@@ -3,6 +3,7 @@ package csui.advpro2021.tais.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import csui.advpro2021.tais.model.Mahasiswa;
+import csui.advpro2021.tais.model.MataKuliah;
 import csui.advpro2021.tais.service.MahasiswaServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,11 +28,13 @@ public class MahasiswaControllerTest {
     private MahasiswaServiceImpl mahasiswaService;
 
     private Mahasiswa mahasiswa;
+    private MataKuliah mataKuliah;
 
     @BeforeEach
     public void setUp(){
         mahasiswa = new Mahasiswa("1906192052", "Maung Meong", "maung@cs.ui.ac.id", "4",
                 "081317691718");
+        mataKuliah = new MataKuliah("A6", "kuliah asixxx", "hikikomori");
     }
 
     private String mapToJson(Object obj) throws JsonProcessingException {
@@ -101,6 +104,24 @@ public class MahasiswaControllerTest {
                 .andExpect(status().isNoContent());
     }
 
+    @Test
+    public void testControllerEnrollMatkul() throws Exception{
 
+        when(mahasiswaService.enrollMataKuliah("1906192052", "A6")).thenReturn(mahasiswa);
+
+        mvc.perform(post("/mahasiswa/enrollMatkul/1906192052/A6")
+                .contentType(MediaType.APPLICATION_JSON_VALUE).content(mapToJson(mahasiswa)))
+                .andExpect(jsonPath("$.npm").value("1906192052"));
+    }
+
+    @Test
+    public void testControllerEnrollAsdos() throws Exception{
+
+        when(mahasiswaService.enrollAsdos("1906192052", "A6")).thenReturn(mahasiswa);
+
+        mvc.perform(post("/mahasiswa/enrollAsdos/1906192052/A6")
+                .contentType(MediaType.APPLICATION_JSON_VALUE).content(mapToJson(mahasiswa)))
+                .andExpect(jsonPath("$.npm").value("1906192052"));
+    }
 
 }

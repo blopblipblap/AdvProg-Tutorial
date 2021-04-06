@@ -49,11 +49,18 @@ public class MahasiswaController {
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping(path = "/{npm}/{kodeMatkul}", produces = {"application/json"})
+    @PostMapping(path = "/enrollMatkul/{npm}/{kodeMatkul}", produces = {"application/json"}, consumes = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public ResponseEntity enrollMatkul(@PathVariable(value = "npm") String npm, @RequestBody Mahasiswa mahasiswa,
+    public ResponseEntity enrollMatkul(@PathVariable(value = "npm") String npm,
                                        @PathVariable(value = "kodeMatkul") String kodeMatkul) {
         return ResponseEntity.ok(
-                mahasiswaService.enrollMataKuliah(npm, mahasiswa, kodeMatkul));
+                mahasiswaService.enrollMataKuliah(npm, kodeMatkul));
+    }
+
+    @PostMapping(path = "/enrollAsdos/{npm}/{kodeMatkul}", produces = {"application/json"}, consumes = {"application/json;charset=UTF-8"})
+    @ResponseBody
+    public ResponseEntity enrollAsdos(@PathVariable(value = "npm") String npm, @PathVariable(value = "kodeMatkul") String kodeMatkul) {
+        return ResponseEntity.ok(
+                mahasiswaService.enrollAsdos(npm, kodeMatkul));
     }
 }

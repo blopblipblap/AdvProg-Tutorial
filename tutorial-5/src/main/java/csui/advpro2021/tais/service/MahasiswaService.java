@@ -14,7 +14,7 @@ public interface MahasiswaService {
 
     void deleteMahasiswaByNPM(String npm);
 
-    Mahasiswa enrollMataKuliah(String npm, Mahasiswa mahasiswa, String kodeMatkul);
+    Mahasiswa enrollMataKuliah(String npm, String kodeMatkul);
 
-    Mahasiswa enrollAsdos(String npm, Mahasiswa mahasiswa, String kodeMatkul);
+    Mahasiswa enrollAsdos(String npm, String kodeMatkul);
 }

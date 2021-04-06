@@ -1,6 +1,8 @@
 package csui.advpro2021.tais.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +10,7 @@ import javax.persistence.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Date;
 
 @Entity
@@ -33,8 +36,9 @@ public class Log {
     @Column(name = "deskripsi")
     private String deskripsi;
 
-    @Column(name = "jamKerja")
-    private Long jamKerja;
+    @ManyToOne
+    @JoinColumn(name = "asdos", referencedColumnName = "npm")
+    @JsonIgnore private Mahasiswa asdos;
 
     public Log(Integer idLog, LocalDateTime startLog, LocalDateTime finishLog, String deskripsi) {
         this.idLog = idLog;

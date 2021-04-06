@@ -1,9 +1,11 @@
 package csui.advpro2021.tais.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "mahasiswa")
@@ -29,11 +31,14 @@ public class Mahasiswa {
 
     @ManyToOne
     @JoinColumn(name = "daftar_matkul", referencedColumnName = "kode_matkul")
-    private MataKuliah mataKuliah;
+    @JsonIgnore private MataKuliah mataKuliah;
 
     @ManyToOne
     @JoinColumn(name = "asdos_matkul", referencedColumnName = "kode_matkul")
-    private MataKuliah matkulAsdosan;
+    @JsonIgnore private MataKuliah matkulAsdosan;
+
+    @OneToMany(mappedBy = "asdos")
+    @JsonIgnore private List<Log> log;
 
 
     public Mahasiswa(String npm, String nama, String email, String ipk, String noTelp) {
@@ -42,9 +47,5 @@ public class Mahasiswa {
         this.email = email;
         this.ipk = ipk;
         this.noTelp = noTelp;
-    }
-
-    public void setMataKuliah(MataKuliah mataKuliah) {
-        this.mataKuliah = mataKuliah;
     }
 }

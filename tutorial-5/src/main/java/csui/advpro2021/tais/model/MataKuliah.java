@@ -1,5 +1,6 @@
 package csui.advpro2021.tais.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,10 +23,10 @@ public class MataKuliah {
     private String prodi;
 
     @OneToMany(mappedBy = "mataKuliah")
-    private List<Mahasiswa> mahasiswa;
+    @JsonIgnore private List<Mahasiswa> mahasiswa;
 
     @OneToMany(mappedBy = "matkulAsdosan")
-    private List<Mahasiswa> asdos;
+    @JsonIgnore private List<Mahasiswa> asdos;
 
     public MataKuliah(String kodeMatkul, String nama, String prodi) {
         this.kodeMatkul = kodeMatkul;

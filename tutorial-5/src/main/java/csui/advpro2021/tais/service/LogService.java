@@ -1,17 +1,20 @@
 package csui.advpro2021.tais.service;
 
+import csui.advpro2021.tais.model.LaporanPembayaran;
 import csui.advpro2021.tais.model.Log;
 
+import java.util.*;
+
 public interface LogService {
-    Log createLog(Log log);
+    Log createLog(String npm, Log log);
 
-    Iterable<Log> getListLog();
+    List<Log> getListLog(String npm);
 
-    Log getLogByIdLog(Integer idLog);
+    Log getLogByIdLog(String npm, Integer idLog);
 
-    Log updateLog(Integer idLog, Log log);
+    Log updateLog(String npm, Integer idLog, Log log);
 
     void deleteLogByIdLog(Integer idLog);
 
-    Log hitungJamKerja(Integer idLog, Log log);
+    Collection<LaporanPembayaran> getLaporanPembayaran(String npm);
 }
