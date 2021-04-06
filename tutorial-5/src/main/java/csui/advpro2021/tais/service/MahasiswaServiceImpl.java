@@ -57,7 +57,6 @@ public class MahasiswaServiceImpl implements MahasiswaService {
         mahasiswaRepository.save(mahasiswa);
         return mahasiswa;
     }
-
     @Override
     public Mahasiswa enrollAsdos(String npm, String kodeMatkul) {
         Mahasiswa mahasiswa = mahasiswaRepository.findByNpm(npm);

@@ -11,9 +11,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MahasiswaServiceImplTest {
@@ -68,11 +74,22 @@ public class MahasiswaServiceImplTest {
     }
 
     @Test
-    public void testServiceDeleteMahasiswa(){
+    public void testServiceDeleteMahasiswaNoMatkul(){
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
         mahasiswaService.createMahasiswa(mahasiswa);
         mahasiswaService.deleteMahasiswaByNPM("1906192052");
         lenient().when(mahasiswaService.getMahasiswaByNPM("1906192052")).thenReturn(null);
         assertEquals(null, mahasiswaService.getMahasiswaByNPM(mahasiswa.getNpm()));
+    }
+
+    @Test
+    public void testServiceDeleteMahasiswaWithMatkul(){
+        mahasiswa.setMataKuliah(matkul);
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
+        mahasiswaService.createMahasiswa(mahasiswa);
+        mahasiswaService.deleteMahasiswaByNPM("1906192052");
+        lenient().when(mahasiswaService.getMahasiswaByNPM("1906192052")).thenReturn(mahasiswa);
+        assertEquals(mahasiswa, mahasiswaService.getMahasiswaByNPM(mahasiswa.getNpm()));
     }
 
     @Test
@@ -96,6 +113,21 @@ public class MahasiswaServiceImplTest {
 
         lenient().when(mahasiswaService.enrollMataKuliah(mahasiswa.getNpm(), matkul.getKodeMatkul())).thenReturn(mahasiswa);
         Mahasiswa resultMahasiswa = mahasiswaService.enrollMataKuliah(mahasiswa.getNpm(), matkul.getKodeMatkul());
+
+        assertEquals(resultMahasiswa.getNama(), mahasiswa.getNama());
+    }
+
+    @Test
+    public void testServiceEnrollAsdos(){
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
+        lenient().when(mataKuliahRepository.findByKodeMatkul(matkul.getKodeMatkul())).thenReturn(matkul);
+
+        List<Mahasiswa> asdos = new ArrayList<>();
+        asdos.add(mahasiswa);
+        matkul.setAsdos(asdos);
+
+        lenient().when(mahasiswaService.enrollAsdos(mahasiswa.getNpm(), matkul.getKodeMatkul())).thenReturn(mahasiswa);
+        Mahasiswa resultMahasiswa = mahasiswaService.enrollAsdos(mahasiswa.getNpm(), matkul.getKodeMatkul());
 
         assertEquals(resultMahasiswa.getNama(), mahasiswa.getNama());
     }

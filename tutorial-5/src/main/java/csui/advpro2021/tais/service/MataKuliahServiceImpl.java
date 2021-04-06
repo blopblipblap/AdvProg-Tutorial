@@ -36,6 +36,8 @@ public class MataKuliahServiceImpl implements MataKuliahService {
     @Override
     public void deleteMataKuliah(String kodeMatkul) {
         MataKuliah matkul = this.getMataKuliah(kodeMatkul);
-        mataKuliahRepository.delete(matkul);
+        if (matkul.getAsdos() == null) {
+            mataKuliahRepository.deleteById(kodeMatkul);
+        }
     }
 }

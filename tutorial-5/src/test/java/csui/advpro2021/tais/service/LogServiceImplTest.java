@@ -3,6 +3,7 @@ package csui.advpro2021.tais.service;
 import csui.advpro2021.tais.model.LaporanPembayaran;
 import csui.advpro2021.tais.model.Log;
 import csui.advpro2021.tais.model.Mahasiswa;
+import csui.advpro2021.tais.model.MataKuliah;
 import csui.advpro2021.tais.repository.LogRepository;
 import csui.advpro2021.tais.repository.MahasiswaRepository;
 import org.junit.jupiter.api.Assertions;
@@ -38,6 +39,7 @@ public class LogServiceImplTest {
     private MahasiswaServiceImpl mahasiswaService;
 
     private Log log;
+    private Log extraLog;
     private Mahasiswa mahasiswa;
     private LaporanPembayaran laporanPembayaran;
 
@@ -51,6 +53,12 @@ public class LogServiceImplTest {
         log.setStartLog(LocalDateTime.parse(str, dtf));
         log.setFinishLog(LocalDateTime.parse(str2, dtf));
         log.setDeskripsi("rebahan");
+
+        extraLog = new Log();
+        extraLog.setIdLog(2);
+        extraLog.setStartLog(LocalDateTime.parse(str, dtf));
+        extraLog.setFinishLog(LocalDateTime.parse(str2, dtf));
+        extraLog.setDeskripsi("rebahan");
 
         mahasiswa = new Mahasiswa();
         mahasiswa.setNpm("1906192052");
@@ -86,6 +94,20 @@ public class LogServiceImplTest {
     }
 
     @Test
+    public void testServiceGetListLogNoMahasiswa(){
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
+        log.setAsdos(mahasiswa);
+        List<Log> logs = new ArrayList<>();
+        logs.add(log);
+        lenient().when(logRepository.findAll()).thenReturn(logs);
+        mahasiswa.setLog(logs);
+
+        lenient().when(logService.getListLog("1906192052")).thenReturn(logs);
+        List<Log> listLogResult = logService.getListLog(mahasiswa.getNpm());
+        assertEquals(logs, listLogResult);
+    }
+
+    @Test
     public void testServiceGetLogByIdLog(){
         lenient().when(logService.getLogByIdLog("1906192052", 1)).thenReturn(log);
         Log resultLog = logService.getLogByIdLog(mahasiswa.getNpm(), log.getIdLog());
@@ -117,9 +139,29 @@ public class LogServiceImplTest {
     //HELP NI LOM KELAR!!!!!!
     @Test
     public void testServiceGetLaporanPembayaranDifferentMonth(){
-        Collection<LaporanPembayaran> laporan = Arrays.asList(laporanPembayaran);
-        lenient().when(logService.getLaporanPembayaran("1906192052")).thenReturn(laporan);
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
+        log.setAsdos(mahasiswa);
+        List<Log> logs = new ArrayList<>();
+        logs.add(log);
+        lenient().when(logRepository.findAll()).thenReturn(logs);
+        mahasiswa.setLog(logs);
 
-        assertEquals("a","a");
+        Collection<LaporanPembayaran> laporan = logService.getLaporanPembayaran(mahasiswa.getNpm());
+        assertEquals(1, laporan.size());
+    }
+
+    @Test
+    public void testServiceGetLaporanPembayaranSameMonth(){
+        lenient().when(mahasiswaRepository.findByNpm(mahasiswa.getNpm())).thenReturn(mahasiswa);
+        log.setAsdos(mahasiswa);
+        extraLog.setAsdos(mahasiswa);
+        List<Log> logs = new ArrayList<>();
+        logs.add(log);
+        logs.add(extraLog);
+        lenient().when(logRepository.findAll()).thenReturn(logs);
+        mahasiswa.setLog(logs);
+
+        Collection<LaporanPembayaran> laporan = logService.getLaporanPembayaran(mahasiswa.getNpm());
+        assertEquals(1, laporan.size());
     }
 }

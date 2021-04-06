@@ -1,4 +1,5 @@
-[![coverage report](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/badges/tutorial-5/coverage.svg)](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/-/commits/tutorial-5)
+[![pipeline report](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/badges/tutorial-5/pipeline.svg)](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/-/commits/tutorial-5)
+[![coverage report](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/badges/tutorial-5/coverage.svg)](https://gitlab.com/vanessaemilyagape9000/advprog-tutorial-2021/-/pipelines)
 #  MVC, REST API, dan Data persistence
 
 ## Prologue of The End
