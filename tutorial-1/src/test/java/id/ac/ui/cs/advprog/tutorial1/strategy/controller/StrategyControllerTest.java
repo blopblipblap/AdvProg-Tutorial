@@ -69,6 +69,7 @@ public class StrategyControllerTest {
         when(adventurerService.findAll()).thenReturn(adventurers);
 
         mockMvc.perform(get("/adventurer/all"))
+
 			.andExpect(status().isOk())
 			.andExpect(model().attribute("adventurers", hasSize(3)))
 			.andExpect(model().attribute("adventurers", hasItem(
@@ -97,6 +98,7 @@ public class StrategyControllerTest {
         when(adventurerService.getAttackBehaviors()).thenReturn(attackBehaviors);
 
         mockMvc.perform(get("/adventurer/all"))
+
 			.andExpect(status().isOk())
 			.andExpect(model().attribute("attackBehaviors", hasSize(3)));
     }
@@ -107,6 +109,7 @@ public class StrategyControllerTest {
         when(adventurerService.getDefenseBehaviors()).thenReturn(defenseBehaviors);
 
         mockMvc.perform(get("/adventurer/all"))
+
 			.andExpect(status().isOk())
 			.andExpect(model().attribute("defenseBehaviors", hasSize(3)));
     }
@@ -118,6 +121,7 @@ public class StrategyControllerTest {
         DefenseBehavior defendWithBarrier = new DefendWithBarrier();
 
         when(adventurerRepository.findByAlias(knight.getAlias()))
+
 			.thenReturn(knight);
         when(strategyRepository.getAttackBehaviorByType(attackWithGun.getType()))
 			.thenReturn(attackWithGun);
@@ -132,6 +136,7 @@ public class StrategyControllerTest {
             adventurer.setDefenseBehavior(defenseBehavior);
             return null;
         }).when(adventurerService).changeStrategy(
+
 			knight.getAlias(),
 			attackWithGun.getType(),
 			defendWithBarrier.getType()

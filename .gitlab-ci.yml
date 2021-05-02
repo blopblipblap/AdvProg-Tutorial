@@ -40,3 +40,13 @@ test:t3:
   except:
     - branches@csui-advprog-2019/advprog-tutorial-2021
 
+test:t4:
+  stage: test
+  script:
+    - gradle :tutorial-4:check
+    - gradle :tutorial-4:jacocoTestReport
+    - cat tutorial-4/build/jacocoHtml/index.html
+  only:
+    - /.*tutorial[_-].*4$/
+  except:
+    - branches@csui-advprog-2019/advprog-tutorial-2021

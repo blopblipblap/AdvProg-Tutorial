@@ -9,6 +9,7 @@ Indonesia, Term 2 2020/2021
 2. [Tutorial 1: Strategy and Observer Pattern](tutorial-1/README.md)
 3. [Tutorial 2: Command and Template Pattern](tutorial-2/README.md)
 4. [Tutorial 3: Adapter and Facade Pattern](tutorial-3/readme.md)
+5. [Tutorial 4: Abstract Factory and Singleton Pattern](tutorial-4/README.md)
 
 ## **TL;DR**
 

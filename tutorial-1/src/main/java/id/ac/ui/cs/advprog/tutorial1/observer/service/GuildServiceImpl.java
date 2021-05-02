@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class GuildServiceImpl implements GuildService {
+
     private final QuestRepository questRepository;
     private final Guild guild;
     private final Adventurer agileAdventurer;

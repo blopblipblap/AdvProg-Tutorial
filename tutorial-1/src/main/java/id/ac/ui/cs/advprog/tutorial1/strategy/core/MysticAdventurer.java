@@ -9,4 +9,5 @@ public class MysticAdventurer extends Adventurer {
     public String getAlias() {
         return "Mystic Adventurer";
     }
+
 }

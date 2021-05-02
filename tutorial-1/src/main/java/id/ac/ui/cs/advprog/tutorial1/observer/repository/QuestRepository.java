@@ -8,6 +8,7 @@ import java.util.Map;
 
 @Repository
 public class QuestRepository {
+
     private Map<String, Quest> quests = new HashMap<>();
 
     public Map<String, Quest> getQuests() {

@@ -33,12 +33,14 @@ public class AdventurerServiceImplTest {
         List<Adventurer> adventurerList = new ArrayList<>();
         adventurerList.add(adventurer);
         when(adventurerService.findAll())
+
 			.thenReturn(adventurerList);
 
         Iterable<Adventurer> calledAdventurerList = adventurerService.findAll();
 
         verify(adventurerRepository, times(1)).findAll();
         assertThat(calledAdventurerList.iterator().next())
+
 			.isEqualTo(adventurerList.get(0));
     }
 
@@ -48,11 +50,13 @@ public class AdventurerServiceImplTest {
         List<Adventurer> adventurerList = new ArrayList<>();
         adventurerList.add(adventurer);
         when(adventurerService.findByAlias(adventurer.getAlias()))
+
 			.thenReturn(adventurer);
 
         Adventurer calledAdventurer = adventurerService.findByAlias(adventurer.getAlias());
 
         verify(adventurerRepository, times(1))
+
 			.findByAlias(adventurer.getAlias());
         assertThat(calledAdventurer).isEqualTo(adventurer);
     }
@@ -67,6 +71,7 @@ public class AdventurerServiceImplTest {
 
         verify(strategyRepository, times(1)).getAttackBehaviors();
         assertThat(calledAttackBehaviors.iterator().next())
+
 			.isEqualTo(attackBehaviors.get(0));
     }
 
@@ -80,6 +85,7 @@ public class AdventurerServiceImplTest {
 
         verify(strategyRepository, times(1)).getDefenseBehaviors();
         assertThat(calledDefenseBehaviors.iterator().next())
+
 			.isEqualTo(defenseBehaviors.get(0));
     }
 
@@ -89,6 +95,7 @@ public class AdventurerServiceImplTest {
         DefenseBehavior defendWithBarrier = new DefendWithBarrier();
         Adventurer agileAdventurer = new AgileAdventurer();
         when(adventurerService.findByAlias(agileAdventurer.getAlias()))
+
 			.thenReturn(agileAdventurer);
         when(strategyRepository.getAttackBehaviorByType(attackWithSword.getType()))
 			.thenReturn(attackWithSword);
